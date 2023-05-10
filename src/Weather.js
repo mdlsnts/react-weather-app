@@ -36,7 +36,7 @@ export default function Weather() {
           placeholder="type your city..."
           onChange={updateCity}
         />
-        <button type="submit" value="Search">
+        <button className="form-button" type="submit" value="Search">
           Search
         </button>
       </form>
