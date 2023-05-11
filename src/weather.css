@@ -37,8 +37,10 @@ form {
 }
 
 .weather h5 {
-  font-size: 18px;
+  font-size: 15px;
   padding-top: 12px;
+  padding-left: 12px;
+  font-weight: 300;
 }
 
 .weather h3 {
@@ -70,6 +72,6 @@ form {
 
 .weather ul {
   list-style: none;
-  padding: 15px;
   text-align: center;
+  font-size: 12px;
 }

@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
     <div className="container">
       <h1>Weather Search Engine</h1>
-      <Weather />
+      <Weather defaultCity="Warsaw" />
       <footer>
         Project coded by&nbsp;
         <a
