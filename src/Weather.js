@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
+import FormattedTime from "./FormattedTime";
 
 export default function Weather(props) {
   const [load, setLoad] = useState(false);
@@ -13,6 +15,7 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       humidity: response.data.temperature.humidity,
       pressure: response.data.temperature.pressure,
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       icon: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
     });
@@ -22,10 +25,16 @@ export default function Weather(props) {
     return (
       <div className="weather">
         <div className="row">
-          <div className="col-6">
+          <div className="col-4">
             <h5>
-              <strong>Today is:</strong> Thursday, May 11th 2023
+              <strong>Today is: </strong>
+              <FormattedDate date={weather.date} />
             </h5>
+          </div>
+          <div className="col-2">
+            <h4 className="currentTime">
+              <FormattedTime date={weather.date} />
+            </h4>
           </div>
           <div className="col-6">
             <form className="searchForm">
