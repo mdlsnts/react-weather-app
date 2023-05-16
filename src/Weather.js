@@ -3,6 +3,7 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function Weather(props) {
   const [message, setMessage] = useState("");
@@ -78,11 +79,7 @@ export default function Weather(props) {
             <div className="currentIcon">
               <WeatherIcon code={weather.icon} />
             </div>
-            <p className="currentTemp">
-              {weather.temperature}
-              <small className="unit">°C</small>
-            </p>
-
+            <WeatherTemperature celsius={weather.temperature} />
             <p className="text-capitalize currentDescr">
               {weather.description}
             </p>

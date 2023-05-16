@@ -67,6 +67,15 @@ form {
   font-size: 20px;
   vertical-align: 40%;
 }
+
+.unitLink {
+  text-decoration: none;
+  color: #c07796;
+}
+.unitLink:hover {
+  color: #b0547b;
+}
+
 .currentDescr {
   text-align: center;
 }
