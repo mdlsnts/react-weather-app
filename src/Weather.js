@@ -5,6 +5,8 @@ import FormattedTime from "./FormattedTime";
 import WeatherIcon from "./WeatherIcon";
 
 export default function Weather(props) {
+  const [message, setMessage] = useState("");
+  const [city, setCity] = useState(props.defaultCity);
   const [load, setLoad] = useState(false);
   const [weather, setWeather] = useState({});
   function showWeather(response) {
@@ -19,7 +21,25 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      city: response.data.name,
     });
+  }
+
+  function search() {
+    const apiKey = "e51522573561c800f57438ff00949faf";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(showWeather);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search(city);
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+    setMessage(event.target.value);
   }
 
   if (load) {
@@ -38,19 +58,23 @@ export default function Weather(props) {
             </h4>
           </div>
           <div className="col-6">
-            <form className="searchForm">
+            <form className="searchForm" onSubmit={handleSubmit}>
               <input
                 type="search"
                 placeholder="enter city..."
                 className="search-form"
+                onChange={handleCityChange}
+                value={message}
               />
-              <button className="btn-search">Search</button>
+              <button className="btn-search" onClick={() => setMessage("")}>
+                Search
+              </button>
             </form>
           </div>
         </div>
         <div className="row">
           <div className="col-6">
-            <h3>{props.defaultCity}</h3>
+            <h3>{weather.city}</h3>
             <div className="currentIcon">
               <WeatherIcon code={weather.icon} />
             </div>
@@ -81,11 +105,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "e51522573561c800f57438ff00949faf";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(showWeather);
-
+    search();
     return "Loading...";
   }
 }
