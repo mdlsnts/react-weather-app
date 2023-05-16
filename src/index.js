@@ -17,7 +17,7 @@ root.render(
           href="https://linktr.ee/martadlsnts"
           target="_blank"
           rel="noreferrer"
-          class="footer-link"
+          className="footer-link"
         >
           Marta Delos Santos
         </a>
@@ -26,7 +26,7 @@ root.render(
           href="https://github.com/mdlsnts/shecodes-react-app"
           target="_blank"
           rel="noreferrer"
-          class="footer-link"
+          className="footer-link"
         >
           GitHub
         </a>

@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather(props) {
   const [load, setLoad] = useState(false);
   const [weather, setWeather] = useState({});
   function showWeather(response) {
-    console.log(response.data);
+    console.log(response.data.dt);
     setLoad(true);
     setWeather({
-      temperature: Math.round(response.data.temperature.current),
-      feelsLike: Math.round(response.data.temperature.feels_like),
+      temperature: Math.round(response.data.main.temp),
+      feelsLike: Math.round(response.data.main.feels_like),
       wind: Math.round(response.data.wind.speed),
-      humidity: response.data.temperature.humidity,
-      pressure: response.data.temperature.pressure,
-      date: new Date(response.data.time * 1000),
-      description: response.data.condition.description,
-      icon: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      humidity: response.data.main.humidity,
+      pressure: response.data.main.pressure,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -32,7 +33,7 @@ export default function Weather(props) {
             </h5>
           </div>
           <div className="col-2">
-            <h4 className="currentTime">
+            <h4>
               <FormattedTime date={weather.date} />
             </h4>
           </div>
@@ -50,10 +51,12 @@ export default function Weather(props) {
         <div className="row">
           <div className="col-6">
             <h3>{props.defaultCity}</h3>
-            <img src={weather.icon} alt="weather-icon" />
-
+            <div className="currentIcon">
+              <WeatherIcon code={weather.icon} />
+            </div>
             <p className="currentTemp">
-              {weather.temperature} <small className="unit">°C</small>
+              {weather.temperature}
+              <small className="unit">°C</small>
             </p>
 
             <p className="text-capitalize currentDescr">
@@ -78,8 +81,9 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+    const apiKey = "e51522573561c800f57438ff00949faf";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+
     axios.get(apiUrl).then(showWeather);
 
     return "Loading...";

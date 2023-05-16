@@ -50,10 +50,9 @@ form {
   font-size: 36px;
 }
 
-.weather img {
-  display: block;
-  margin: 0 auto;
-  width: 130px;
+.currentIcon {
+  text-align: center;
+  padding: 10px;
 }
 
 .currentTemp {
