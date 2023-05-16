@@ -1,4 +1,5 @@
 import React from "react";
+import "./weather.css";
 
 export default function FormattedDate(props) {
   let days = [
@@ -29,7 +30,7 @@ export default function FormattedDate(props) {
   let month = months[props.date.getMonth()];
   let year = props.date.getFullYear();
   return (
-    <span>
+    <span className="currentDate">
       {day}, {month} {date} {year}
     </span>
   );
