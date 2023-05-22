@@ -4,6 +4,7 @@ import FormattedDate from "./FormattedDate";
 import FormattedTime from "./FormattedTime";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [message, setMessage] = useState("");
@@ -77,26 +78,29 @@ export default function Weather(props) {
           <div className="col-6">
             <h3>{weather.city}</h3>
             <div className="currentIcon">
-              <WeatherIcon code={weather.icon} />
+              <WeatherIcon code={weather.icon} size={80} />
             </div>
             <WeatherTemperature celsius={weather.temperature} />
             <p className="text-capitalize currentDescr">
               {weather.description}
             </p>
-            <div className="row">
-              <div className="col-6">
+            <div className="row ">
+              <div className="col-6 " id="detailsL">
                 <ul>
                   <li>Feels like: {weather.feelsLike}°C</li>
                   <li>Pressure: {weather.pressure} hPa</li>
                 </ul>
               </div>
-              <div className="col-6">
+              <div className="col-6" id="detailsR">
                 <ul>
                   <li>Humidity: {weather.humidity}%</li>
                   <li>Wind: {weather.wind} km/h</li>
                 </ul>
               </div>
             </div>
+          </div>
+          <div className="col-6">
+            <WeatherForecast />
           </div>
         </div>
       </div>

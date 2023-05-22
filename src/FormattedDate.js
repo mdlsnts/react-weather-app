@@ -30,7 +30,7 @@ export default function FormattedDate(props) {
   let month = months[props.date.getMonth()];
   let year = props.date.getFullYear();
   return (
-    <span className="currentDate">
+    <span>
       {day}, {month} {date} {year}
     </span>
   );

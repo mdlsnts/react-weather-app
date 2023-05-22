@@ -1,0 +1,14 @@
+.WeatherForecast {
+  text-align: center;
+  font-size: 16px;
+  padding-top: 10px;
+}
+.forecastTempMin {
+  opacity: 0.7;
+}
+#forecastIcon {
+  vertical-align: -30%;
+}
+.dailyForecast {
+  padding: 15px;
+}
