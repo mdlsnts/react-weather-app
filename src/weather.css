@@ -5,6 +5,8 @@
   color: #5b5b5b;
   padding: 15px;
   font-family: "Noto Sans Chakma", sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 form {
