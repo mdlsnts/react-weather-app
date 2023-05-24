@@ -15,22 +15,22 @@ export default function Weather(props) {
     console.log(response.data);
     setLoad(true);
     setWeather({
-      temperature: Math.round(response.data.main.temp),
-      feelsLike: Math.round(response.data.main.feels_like),
+      temperature: Math.round(response.data.temperature.current),
+      feelsLike: Math.round(response.data.temperature.feels_like),
       wind: Math.round(response.data.wind.speed),
-      humidity: response.data.main.humidity,
-      pressure: response.data.main.pressure,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      city: response.data.name,
-      coordinates: response.data.coord,
+      humidity: response.data.temperature.humidity,
+      pressure: response.data.temperature.pressure,
+      date: new Date(response.data.time * 1000),
+      description: response.data.condition.description,
+      icon: response.data.condition.icon,
+      city: response.data.city,
+      coordinates: response.data.coordinates,
     });
   }
 
   function search() {
-    const apiKey = "564ea431d20310a8e5d095c69fec6ea2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(showWeather);
   }
