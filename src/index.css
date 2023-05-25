@@ -1,16 +1,18 @@
 @import url(https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Happy+Monkey&family=Lora:wght@400;500;600;700&family=Noto+Sans+Chakma&family=Poiret+One&family=Ysabeau:wght@1;100;200;300;400;500;600;700;800;900&display=swap);
 
-h1 {
+.container h1 {
   font-family: "Lora", serif;
+  font-size: 30px;
   text-align: center;
-  color: #474747;
+  color: #836fb2;
   padding: 20px;
   font-weight: 700;
-  font-size: 40px;
+  text-transform: uppercase;
 }
 
 footer {
-  color: #3d3d3d;
+  color: #091c37;
+  opacity: 0.8;
   font-family: "Lora", serif;
   text-align: center;
   font-weight: 400;
@@ -20,9 +22,15 @@ footer {
 
 .footer-link {
   text-decoration: none;
-  color: #e36576;
+  color: #ef6475;
 }
 .footer-link:hover {
   font-weight: 600;
-  color: #dd3f54;
+  color: #a255ad;
+}
+
+@media (max-width: 576px) {
+  .container h1 {
+    font-size: 25px;
+  }
 }

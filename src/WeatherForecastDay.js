@@ -33,7 +33,7 @@ export default function WeatherForecastDay(props) {
       <span className="forecastTempMax">{maxTemp()}°</span>{" "}
       <span className="forecastTempMin">{minTemp()}°</span> &nbsp;
       <span id="forecastIcon">
-        <WeatherIcon code={props.data.condition.icon} size={24} />
+        <WeatherIcon code={props.data.condition.icon} size={30} />
       </span>
     </div>
   );
