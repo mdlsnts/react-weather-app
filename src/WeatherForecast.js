@@ -21,10 +21,10 @@ export default function WeatherForecast(props) {
     );
   } else {
     let apiKey = "o1tc4ebff6db3c7b81795bb7e3b230a1";
-    let lat = props.coordinates.latitude;
-    let lon = props.coordinates.longitude;
+    let latitude = props.coordinates.latitude;
+    let longitude = props.coordinates.longitude;
 
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showForecast);
 
     return null;
