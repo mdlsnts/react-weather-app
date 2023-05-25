@@ -29,6 +29,13 @@ footer {
   color: #a255ad;
 }
 
+.container .mobile-only {
+  text-align: center;
+  font-size: 12px;
+  font-family: "Lora", serif;
+  color: #f38895;
+}
+
 @media (max-width: 576px) {
   .container h1 {
     font-size: 25px;

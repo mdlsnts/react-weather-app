@@ -10,6 +10,9 @@ root.render(
   <React.StrictMode>
     <div className="container">
       <h1>pastel weather</h1>
+      <p class="mobile-only d-sm-none">
+        💫 Please rotate your phone for better experience 💫
+      </p>
       <Weather defaultCity="Warsaw" />
       <footer>
         Project coded by&nbsp;
