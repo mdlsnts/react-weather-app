@@ -16,6 +16,7 @@
 .dailyForecast {
   padding: 15px;
 }
+
 @media (max-width: 576px) {
   .WeatherForecast {
     font-size: 14px;
